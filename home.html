@@ -9,7 +9,7 @@
     <button type="button" id="log_" onclick="log_()">Loading...</button>
     <script>
         function log_() {
-            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=None'))) {
+            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=None')) || document.cookie.split(';').some((c) => c.trim().startsWith('accessCode='))) {
                 document.cookie = "accessCode=None; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 location.reload();
             } else {
@@ -18,7 +18,7 @@
         }
 
         window.onload = function() {
-            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=None'))) {
+            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=None')) || document.cookie.split(';').some((c) => c.trim().startsWith('accessCode='))) {
                 document.getElementById('log_').textContent = "Logout";
             } else {
                 document.getElementById('log_').textContent = "Login";
