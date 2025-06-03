@@ -6,6 +6,24 @@
     <title>Home - Family Tree</title>
 </head>
 <body>
-    
+    <button type="button" id="log_" onclick="log_()">Loading...</button>
+    <script>
+        function log_() {
+            if (document.cookie.split(';').some((c) => c.trim().startsWith('accessCode='))) {
+                document.cookie = "accessCode=; path=/FamilyTree; SameSite=Strict";
+                location.reload();
+            } else {
+                window.location.href = "login";
+            }
+        }
+
+        window.onload = function() {
+            if (document.cookie.split(';').some((c) => c.trim().startsWith('accessCode='))) {
+                document.getElementById('log_').textContent = "Logout";
+            } else {
+                document.getElementById('log_').textContent = "Login";
+            }
+        };
+    </script>
 </body>
 </html>
