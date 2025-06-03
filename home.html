@@ -9,8 +9,8 @@
     <button type="button" id="log_" onclick="log_()">Loading...</button>
     <script>
         function log_() {
-            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=;'))) {
-                document.cookie = "accessCode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=None'))) {
+                document.cookie = "accessCode=None; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 location.reload();
             } else {
                 window.location.href = "login";
@@ -18,7 +18,7 @@
         }
 
         window.onload = function() {
-            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=;'))) {
+            if (!document.cookie.split(';').some((c) => c.trim().startsWith('accessCode=None'))) {
                 document.getElementById('log_').textContent = "Logout";
             } else {
                 document.getElementById('log_').textContent = "Login";
