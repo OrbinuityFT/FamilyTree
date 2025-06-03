@@ -10,8 +10,7 @@
     <script>
         function log_() {
             if (document.cookie.split(';').some((c) => c.trim().startsWith('accessCode='))) {
-                // Delete the accessCode cookie
-                document.cookie = "accessCode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = `accessCode=; path=/FamilyTree; max-age=0; SameSite=Strict`;
                 location.reload();
             } else {
                 window.location.href = "login";
