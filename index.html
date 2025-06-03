@@ -6,14 +6,37 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <style>
-    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; margin-top: 100px; }
-    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      margin-top: 100px;
+    }
+    
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    .spinner {
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
   <h2>Enter Your Access Code</h2>
   <input type="password" id="codeInput" placeholder="Enter code">
   <button onclick="submitCode()">Login</button>
+  <img src="assets/images/loading.png" class="spinner" alt="Loading">
   <div id="result"></div>
 
   <script>
